@@ -6,14 +6,19 @@ body {
 .btn {
   padding: 2px 10px;
   border-radius: 2px;
+  /* Importing Styles Here */ 
+  @import '_variables';
+
   &.btn-primary {
     border: 1px solid rebeccapurple;
-    background-color: lawngreen;
+    background-color: $hopbush;
+    border: 1px solid $venus;
     color: #fff;
   }
   &.btn-secondary {
     border: 1px solid cadetblue;
-    background-color: peru;
+    background-color: $nebula;
+    border: 1px solid $patina;
     color: #000;
   }
   &:disabled {
