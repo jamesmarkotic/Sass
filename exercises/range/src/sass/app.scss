@@ -1,6 +1,63 @@
 @import '_variables';
 @import '_mixins';
 
-input[type="range"] {
-  // Add your styles here
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+  &::-webkit-slider-runnable-track {
+    @include range-track;
+    @include shadow-background;
+    @include border-radius;
+  }
+  &::-webkit-slider-thumb {
+    @include range-thumb;
+    @include border-background;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+  }
+  &:focus::-webkit-slider-runnable-track {
+    background: #367ebd;
+  }
+  &::-moz-range-track {
+    @include range-track;
+    @include shadow-background;
+    @include border-radius;
+  }
+  &::-moz-range-thumb {
+    @include range-thumb;
+    @include border-background;
+    cursor: pointer;
+  }
+  &::-ms-track {
+    @include range-track;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  &::-ms-fill-lower {
+    background: #2a6495;
+    @include border-radius;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  &::-ms-fill-upper {
+    @include shadow-background;
+    @include border-radius;
+  }
+  &::-ms-thumb {
+    @include range-thumb;
+    @include border-background;
+    cursor: pointer;
+  }
+  &:focus::-ms-fill-lower {
+    background: #3071a9;
+  }
+  &:focus::-ms-fill-upper {
+    background: #367ebd;
+  }
 }
