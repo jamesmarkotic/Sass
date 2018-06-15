@@ -1,3 +1,48 @@
 @mixin theme($primary-color, $rotate: 120deg, $darkenpct: 20%) {
- 
+    $colorOne: adjust-color($primary-color, $rotate);
+    $colorTwo: adjust-color($primary-color, 180deg);
+    $colorThree: adjust-color($primary-color, -$rotate);
+
+    .btn-primary {
+        @include btn-base($primary-color, 0);
+        // background-color: $primary-color;
+        // border-color: darken($primary-color, 20%);
+        // &:hover {
+        //     background: lighten(saturate($primary-color, 20%) 10%);
+        // }
+    }
+    .btn-secondary {
+        @include btn-base($colorThree);
+
+        // background-color: $colorThree;
+        // border-color: darken($colorThree, 20%);
+        // &:hover {
+        //     background: lighten(saturate($colorThree, 20%) 10%);
+        // }
+    }
+    .btn-other {
+        @include btn-base($colorOne);
+        // background-color: $colorOne;
+        // border-color: darken($colorOne, 20%);
+        // &:hover {
+        //     background: lighten(saturate($colorOne, 20%) 10%);
+        // }
+    }
+    .btn-other2 {
+        @include btn-base($colorTwo);
+
+        // background-color: $colorTwo;
+        // border-color: darken($colorTwo, 20%);
+        // &:hover {
+        //     background: lighten(saturate($colorTwo, 20%) 10%);
+        
+    }
+}
+
+@mixin btn-base ($bg, $darken_pct: 20%) {
+    background-color: $bg;
+    border-color: darken($bg, 20%);
+    &:hover {
+        background: lighten(saturate($bg, 20%) 10%);
+    }
 }
