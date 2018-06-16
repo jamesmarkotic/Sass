@@ -1,31 +1,40 @@
-// $classSelect: (5, 10, 15, 20, 25);
-// $paddings: (5px, 10px, 15px, 20px, 25px);
-// $classChoose: ('.m-t-');
-
-@for $i from 1 through 5 {
-    $size: $i * 5;
-    .m-t-#{$size} {
-        margin-top: #{$size}px;
-    }
-    .m-b-#{$size} {
-        margin-bottom: #{$size}px;
-    }
-    .m-l-#{$size} {
-        margin-left: #{$size}px;
-    }
-    .m-r-#{$size} {
-        margin-right: #{$size}px;
-    }
-    .p-t-#{$size} {
-        padding-top: #{$size}px;
-    }
-    .p-b-#{$size} {
-        padding-bottom: #{$size}px;
-    }
-    .p-l-#{$size} {
-        padding-left: #{$size}px;
-    }
-    .p-r-#{$size} {
-        padding-right: #{$size}px;
+// @for $i from 1 through 5 {
+//     $size: $i * 5;
+//     .m-t-#{$size} {
+//         margin-top: #{$size}px;
+//     }
+//     .m-b-#{$size} {
+//         margin-bottom: #{$size}px;
+//     }
+//     .m-l-#{$size} {
+//         margin-left: #{$size}px;
+//     }
+//     .m-r-#{$size} {
+//         margin-right: #{$size}px;
+//     }
+//     .p-t-#{$size} {
+//         padding-top: #{$size}px;
+//     }
+//     .p-b-#{$size} {
+//         padding-bottom: #{$size}px;
+//     }
+//     .p-l-#{$size} {
+//         padding-left: #{$size}px;
+//     }
+//     .p-r-#{$size} {
+//         padding-right: #{$size}px;
+//     }
+// }
+$dimensions: ('m': 'margin', 'p': 'padding');
+$directions: (t: 'top', b: 'bottom', l: 'left', r: 'right');
+/* Ultra Optimized Solution */
+@each $dim in $dimensions {
+    @each $dir in $directions {
+        @for $i from 1 through 5 {
+            $size: $i * 5;
+            .#{nth($dim, 1)}-#{nth($dir, 1)}-#{$size} {
+                #{nth($dim, 2)}-#{nth($dir, 2)}: #{$size};
+            }
+        }
     }
 }
