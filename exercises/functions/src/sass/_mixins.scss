@@ -1,7 +1,7 @@
 @mixin theme($primary-color, $rotate: 120deg, $darkenpct: 20%) {
-    $colorOne: adjust-color($primary-color, $rotate);
-    $colorTwo: adjust-color($primary-color, 180deg);
-    $colorThree: adjust-color($primary-color, -$rotate);
+    $other-color: adjust-color($primary-color, $rotate);
+    $other2-color: adjust-color($primary-color, 180deg);
+    $secondary-color: adjust-color($primary-color, -$rotate);
 
     .btn-primary {
         @include btn-base($primary-color, 0);
@@ -12,29 +12,29 @@
         // }
     }
     .btn-secondary {
-        @include btn-base($colorThree);
+        @include btn-base($secondary-color);
 
-        // background-color: $colorThree;
-        // border-color: darken($colorThree, 20%);
+        // background-color: $secondary-color;
+        // border-color: darken($secondary-color, 20%);
         // &:hover {
-        //     background: lighten(saturate($colorThree, 20%) 10%);
+        //     background: lighten(saturate($secondary-color, 20%) 10%);
         // }
     }
     .btn-other {
-        @include btn-base($colorOne);
-        // background-color: $colorOne;
-        // border-color: darken($colorOne, 20%);
+        @include btn-base($other-color);
+        // background-color: $other-color;
+        // border-color: darken($other-color, 20%);
         // &:hover {
-        //     background: lighten(saturate($colorOne, 20%) 10%);
+        //     background: lighten(saturate($other-color, 20%) 10%);
         // }
     }
     .btn-other2 {
-        @include btn-base($colorTwo);
+        @include btn-base($other2-color);
 
-        // background-color: $colorTwo;
-        // border-color: darken($colorTwo, 20%);
+        // background-color: $other2-color;
+        // border-color: darken($other2-color, 20%);
         // &:hover {
-        //     background: lighten(saturate($colorTwo, 20%) 10%);
+        //     background: lighten(saturate($other2-color, 20%) 10%);
         
     }
 }
@@ -43,6 +43,6 @@
     background-color: $bg;
     border-color: darken($bg, 20%);
     &:hover {
-        background: lighten(saturate($bg, 20%) 10%);
+        background: lighten(saturate($bg, 20%), 10%)
     }
 }
